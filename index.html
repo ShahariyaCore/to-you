@@ -7,6 +7,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Essential Mobile Fixes */
+        #hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        button, .btn, .love-letter-container, input {
+            position: relative;
+            z-index: 50;
+            touch-action: manipulation;
+        }
+
+        .gallery img {
+            cursor: pointer;
+            transition: transform 0.3s;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .animate-bounce-slow { animation: bounce 3s infinite; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .animate-floating { animation: floating 4s ease-in-out infinite; }
+        @keyframes floating {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(10px, -15px) rotate(10deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+    </style>
 </head>
 <body>
 
@@ -70,53 +105,49 @@
 </div>
 <p id="funResult" class="mt-8 text-2xl font-bold text-pink-600 italic min-h-[40px] transition-all duration-300"></p>
     </section>
-<section class="love-animation-section py-20 bg-pink-50 overflow-hidden relative">
-    <h2 class="text-3xl font-bold text-center mb-12 text-pink-600">Koilzarun😘</h2>
+<section class="love-animation-section py-20 bg-pink-100/30 overflow-hidden relative">
+        <h2 class="text-3xl font-bold text-center mb-12 text-pink-600">Koilzarun😘</h2>
+        <div class="container mx-auto flex flex-col items-center">
+            <div class="relative w-64 h-64 mb-10">
+                <div class="absolute inset-0 flex justify-center items-center animate-bounce-slow">
+                   <span class="text-8xl">👩‍❤️‍👨</span> 
+                </div>
+                <div class="absolute -top-4 -left-4 text-4xl animate-pulse">💖</div>
+                <div class="absolute -bottom-4 -right-4 text-4xl animate-pulse delay-700">💝</div>
+                <div class="absolute top-1/2 -right-8 text-3xl animate-floating">🌸</div>
+            </div>
+
+            <div class="love-letter-container" onclick="openLetter()">
+                <div id="envelope" class="bg-white p-8 rounded-lg shadow-xl border-2 border-pink-200 text-center hover:scale-105 transition-transform">
+                    <div class="text-5xl mb-4">✉️</div>
+                    <p class="font-bold text-pink-500">Click to Open My Heart</p>
+                </div>
+                <div id="letterContent" class="hidden mt-6 bg-white p-6 rounded-lg shadow-inner border-l-4 border-pink-500 max-w-sm">
+                    <p class="italic text-gray-700 leading-relaxed">
+                        "Ahnan, পৃথিবীর সবথেকে সুন্দর অনুভূতি হলো তোমার সাথে থাকা। এই ছোট্ট এনিমেশনটা হয়তো অনেক সাধারণ, কিন্তু তোমার জন্য আমার ভালোবাসা অসীম। ❤️"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="entertainment-zone py-16 bg-white">
+        <div class="max-w-lg mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold mb-4 text-red-500">The Love Compatibility Test 💘</h2>
+            <div class="flex flex-col gap-4 mt-8">
+                <input type="text" id="name1" value="Me" class="input input-bordered w-full text-center font-bold" readonly />
+                <div class="text-2xl font-bold text-pink-500">+</div>
+                <input type="text" id="name2" placeholder="Enter Your Name" class="input input-bordered w-full text-center" />
+                <button class="btn btn-primary bg-gradient-to-r from-pink-500 to-red-500 border-none text-white" onclick="calculateLove()">Calculate!</button>
+            </div>
+            <div id="loveResultContainer" class="hidden mt-8 animate-bounce">
+                <div class="text-6xl font-black text-red-600" id="percent">0%</div>
+                <p id="loveMessage" class="mt-2 text-xl italic font-semibold text-pink-700"></p>
+            </div>
+        </div>
+    </section>
+
     
-    <div class="container mx-auto flex flex-col items-center">
-        <div class="relative w-64 h-64 mb-10">
-            <div class="absolute inset-0 flex justify-center items-center animate-bounce-slow">
-               <span class="text-8xl">👩‍❤️‍👨</span> 
-            </div>
-            
-            <div class="absolute -top-4 -left-4 text-4xl animate-pulse">💖</div>
-            <div class="absolute -bottom-4 -right-4 text-4xl animate-pulse delay-700">💝</div>
-            <div class="absolute top-1/2 -right-8 text-3xl animate-floating">🌸</div>
-        </div>
-
-        <div class="love-letter-container cursor-pointer" onclick="openLetter()">
-            <div id="envelope" class="bg-white p-8 rounded-lg shadow-2xl border-2 border-pink-200 text-center transition-all duration-500 hover:rotate-2">
-                <div class="text-5xl mb-4">✉️</div>
-                <p class="font-bold text-pink-500">Click to Open My Heart</p>
-            </div>
-            
-            <div id="letterContent" class="hidden mt-6 bg-white p-6 rounded-lg shadow-inner border-l-4 border-pink-500 max-w-sm animate-fade-in">
-                <p class="italic text-gray-700">
-                    "Ahnan, পৃথিবীর সবথেকে সুন্দর অনুভূতি হলো তোমার সাথে থাকা। এই ছোট্ট এনিমেশনটা হয়তো অনেক সাধারণ, কিন্তু তোমার জন্য আমার ভালোবাসা অসীম। ❤️"
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="entertainment-zone py-16 bg-white">
-    <div class="max-w-lg mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold mb-4 text-red-500">The Love Compatibility Test 💘</h2>
-        <p class="mb-6 text-gray-600">Let's see how much we match!</p>
-        
-        <div class="flex flex-col gap-4">
-            <input type="text" id="name1" value="Me" class="input input-bordered w-full text-center" readonly />
-            <div class="text-2xl font-bold text-pink-500">+</div>
-            <input type="text" id="name2" placeholder="Your Name" class="input input-bordered w-full text-center focus:ring-2 focus:ring-pink-400" />
-            
-            <button class="btn btn-primary bg-gradient-to-r from-pink-500 to-red-500 border-none mt-4" onclick="calculateLove()">Calculate Compatibility!</button>
-        </div>
-
-        <div id="loveResultContainer" class="hidden mt-8 animate-bounce">
-            <div class="text-6xl font-black text-red-600" id="percent">0%</div>
-            <p id="loveMessage" class="mt-2 text-xl italic font-semibold text-pink-700"></p>
-        </div>
-    </div>
-</section>
 
     <section class="proposal text-center py-20 px-6">
         <h2 class="text-3xl font-bold mb-6 text-red-500">Something From My Heart ❤️</h2>
