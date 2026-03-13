@@ -103,7 +103,45 @@ function answer(i) {
         resultElement.style.opacity = "1";
     }, 150);
 }
+function calculateLove() {
+    const herName = document.getElementById('name2').value.trim().toLowerCase();
+    const resultDiv = document.getElementById('loveResultContainer');
+    const percentDisplay = document.getElementById('percent');
+    const messageDisplay = document.getElementById('loveMessage');
 
+    if (herName === "") {
+        alert("Please enter your name first! 😉");
+        return;
+    }
+
+    resultDiv.classList.remove('hidden');
+    
+    let targetPercent;
+    let finalMessage;
+
+    // The Secret Logic 🤫
+    if (herName === "ahnan") {
+        targetPercent = 100;
+        finalMessage = "It's a Perfect Match! You are the only one for me. ❤️";
+    } else {
+        // Random number between 0 and 95 for anyone else
+        targetPercent = Math.floor(Math.random() * (75 - 30 + 1)) + 10;
+        finalMessage = "A great match, but something is missing... 🧐";
+    }
+
+    // Smooth counting animation
+    let currentPercent = 0;
+    let timer = setInterval(() => {
+        if (currentPercent >= targetPercent) {
+            clearInterval(timer);
+            percentDisplay.innerText = targetPercent + "%";
+            messageDisplay.innerText = finalMessage;
+        } else {
+            currentPercent++;
+            percentDisplay.innerText = currentPercent + "%";
+        }
+    }, 20); // Speed of the counter
+}
 /* ================= FINAL CELEBRATION ================= */
 function celebrate() {
     const finalPage = document.getElementById("finalPage");
@@ -142,4 +180,19 @@ function startFireworks() {
         setTimeout(() => fire.remove(), 1500);
     }
     alert("You made me the happiest person! ❤️");
+}
+
+
+function openLetter() {
+    const envelope = document.getElementById('envelope');
+    const content = document.getElementById('letterContent');
+    
+    // Smoothly hide envelope and show letter
+    envelope.style.display = 'none';
+    content.classList.remove('hidden');
+    
+    // Trigger some extra hearts
+    for(let i=0; i<10; i++) {
+        createHeart(); // Using your existing heart creation logic
+    }
 }
