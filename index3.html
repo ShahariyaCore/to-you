@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="hearts"></div>
+
+<header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content text-center">
+        <div class="max-w-md">
+            <h1 class="title text-2xl font-bold mb-4">শুভ জন্মদিন আমার হৃদয়ের আলো 🌹<br>তুমি আছো বলেই পৃথিবীটা সুন্দর লাগে ❤️</h1>
+            <p id="typing" class="text-[16px] italic"></p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="memory-section px-4">
+        <h2 class="section-title text-3xl text-center py-10">তোমার হাসি, আমার ভালোবাসা 💕 </h2>
+        <div class="gallery">
+            <img src="./assesst/23.jpeg" onclick="openMemory(0)">
+            <img src="./assesst/20.jpeg" onclick="openMemory(1)">
+            <img src="./assesst/32.jpeg" onclick="openMemory(2)">
+            <img src="./assesst/18.jpeg" onclick="openMemory(3)">
+            <img src="./assesst/17.jpeg" onclick="openMemory(4)">
+            <img src="./assesst/19.jpeg" onclick="openMemory(5)">
+            <img src="./assesst/27.png" onclick="openMemory(6)">
+            <img src="./assesst/my love.jpg" onclick="openMemory(7)">
+            <img src="./assesst/24.jpeg" onclick="openMemory(8)">
+            <img src="./assesst/13.jpg" onclick="openMemory(9)">
+            <img src="./assesst/11.jpg" onclick="openMemory(10)">
+            <img src="./assesst/12.jpg" onclick="openMemory(11)">
+        </div>
+    </section>
+
+    <div id="memoryViewer" class="memory-viewer" onclick="closeMemory()">
+        <div class="memory-content p-4" onclick="event.stopPropagation()">
+            <img id="memoryImg" class="mx-auto rounded-lg shadow-2xl">
+            <div class="memory-text text-white">
+                <p id="memoryMessage" class="text-xl font-bold mt-4"></p>
+                <div id="memoryLyrics" class="text-md mt-2 italic text-gray-300"></div>
+            </div>
+            <audio id="memoryAudio"></audio>
+            <button class="btn btn-sm btn-circle absolute right-2 top-2" onclick="closeMemory()">✕</button>
+        </div>
+    </div>
+
+    <section class="fun-section text-center py-10">
+        <h2 class="text-2xl font-bold mb-6">Little Questions 😄</h2>
+      <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+    <button class="btn p-2 btn-secondary" onclick="answer(0)">Do you think I am cute? 🫣</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(1)">Coffee date with me? ☕</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(2)">Who makes you smile most? 😁</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(3)">Would you give me a chance? 🥺</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(4)">Am I annoying? 🐝</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(5)">Do you miss me right now? 💭</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(6)">Am I your favorite person? 🥇</button>
+    <button class="btn p-2 btn-outline btn-secondary" onclick="answer(7)">Can I steal a chocolate from you? 🍫</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(8)">Will you block me if I'm weird? 🚫</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(9)">Do you like my voice? 🎙️</button>
+    <button class="btn p-2  btn-secondary" onclick="answer(10)">Are you blushing right now? ☺️</button>
+</div>
+<p id="funResult" class="mt-8 text-2xl font-bold text-pink-600 italic min-h-[40px] transition-all duration-300"></p>
+    </section>
+
+    <section class="proposal text-center py-20 px-6">
+        <h2 class="text-3xl font-bold mb-6 text-red-500">Something From My Heart ❤️</h2>
+        <div class="max-w-3xl mx-auto space-y-6 text-gray-800">
+        <div class="prose-lg italic leading-relaxed">
+            <p>Maybe this website is a little silly.
+            But I wanted to do something special for you.
+            You are one of the most beautiful souls I have ever met. 
+               Your smile makes the world feel brighter.
+            I don't know what the future holds, but today I want to be honest.
+            <p class=" pt-1 font-semibold text-pink-600 text-[16px]">Would you give me a chance to make you smile every day?</p>
+        </div>
+        <p class="max-w-2xl mx-auto mb-8 text-lg">
+            তুমি কি জানোনা, তুমি কি বোঝনা... তোমারি কথা এ হৃদয় বলে...<br>
+            এ মনেরি সীমানায় তুমি ছাড়া কেউ নাই... আড়াল হলে যেন মরে যাই।
+        </p>
+        <button class="btn btn-lg p-2 btn-primary bg-pink-500 border-none hover:bg-pink-600" onclick="celebrate()">Your Answer 🎂</button>
+    </section>
+</main>
+
+<section id="finalPage" class="final-page">
+    <div class="final-container">
+        <h1 class="final-title">I Have Something To Ask You ❤️</h1>
+        <div class="final-text overflow-y-auto max-h-[60vh] px-4">
+            <p>"I don’t know where to begin, because I’ve carried these words for so long. You were never just a person to me; you became a part of my days, my thoughts, and my silences 💭. I got attached to you without planning it—one day you were just there, and suddenly, you mattered too much. I think about you in those small, quiet moments when nothing else is happening 🌙."</p>
+            <br>
+            <p>"I fell for you because, for the first time in a long time, I felt at peace—like I was home 🏡. Even if you showed me the worst parts of yourself, I think I’d still find a reason to stay. If I message you again and again, disregarding my own ego, please don't think I'm crazy. It just means I value you more than my pride 💖. I’m not being desperate; I’m just afraid of losing the one person who makes my heart smile."</p>
+            <br>
+              <p>
+"I’m not asking to be your only priority, but I hope you remember that someone is always waiting for an update from you 📱. A short message or a quick call—just a small sign to show I’m not forgotten. I want to feel like I’m a part of your life too 💌. My only intention is to make you feel truly seen, heard, and valued every single day 🌷."
+  </p>
+<br>
+  <p>
+    There were days I was ready to block you and disappear, not out of hate, but because loving you hurts 💔. But then I remembered my promise: 'I’ll always be here if you need me.এখন থেকে কোনো প্রত্যাশা ছাড়াই তোমাকে ভালোবেসে যাবো, অনেক দূর থেকে, খুব নীরবে ✨
+  </p> <br>
+            <p>"তোমাকে চেনার প্রথম মুহূর্ত থেকেই আমার হৃদয়ের ভেতরে কিছু একটা বদলে গেছে। আজ তোমার জন্মদিনে আমি তোমাকে খুব সততার সাথে একটা কথা জিজ্ঞেস করতে চাই... তুমি কি আমাকে একটা সুযোগ দেবে তোমাকে সুখী করার? 🌷"</p>
+            <p class="font-bold text-yellow-300 mt-4">শুধু একবার আমার ওপর বিশ্বাস করে দেখো।</p>
+        </div>
+        <button class="final-btn shadow-lg" onclick="startFireworks()">Click Your Answer ❤️</button>
+    </div>
+</section>
+
+<script src="js/script.js"></script>
+</body>
+</html>
