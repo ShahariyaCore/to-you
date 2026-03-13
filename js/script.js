@@ -247,7 +247,7 @@ function createFloatingHeart() {
 
 /* ================= MEMORY DATA ================= */
 const memories = [
-    { image: "./assesst/30.jpg", song: "./song/Deewaniyat.mp3", message: "You turn ordinary moments into memories.", lyrics: "Tu hi armaan, tu hi sach hai..." },
+    { image: "./assesst/30.jpg", song: "./song/Deewaniyat 🧡🤍Brilliant Music @vishalmishraofficial @kunaalvermaa @anshul300 @raghav.sharma.146 (1).mp3", message: "You turn ordinary moments into memories.", lyrics: "Tu hi armaan, tu hi sach hai..." },
     { image: "./assesst/16.jpeg", song: "./song/3.mp3", message: "My heart chose you without hesitation.", lyrics: "Darling, just hold my hand..." },
     { image: "./assesst/15.jpg", song: "./song/4.mp3", message: "You make my life brighter.", lyrics: "Main hoon saath tere..." },
     { image: "./assesst/14.jpg", song: "./song/5.mp3", message: "You are my silent happiness.", lyrics: "Tum ho toh subaha nayi hai..." },
